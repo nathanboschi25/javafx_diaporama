@@ -27,7 +27,9 @@ public class SelectPath implements EventHandler<ActionEvent> {
 
         view.listeAnimalsSelector.setItems(FXCollections.observableList(model.animalImages));
 
-        model.setActualImage(model.animalImages.get(0));
-        view.listeAnimalsSelector.getSelectionModel().select(0);
+        if (model.animalImages.size() > 0) {
+            model.setActualImage(model.animalImages.get(0));
+            view.listeAnimalsSelector.getSelectionModel().select(0);
+        }
     }
 }

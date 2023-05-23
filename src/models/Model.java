@@ -28,7 +28,8 @@ public class Model {
         System.out.println("Recuperation des images dans " + imagePath);
         File folder = new File(imagePath);
         for (File fileEntry : folder.listFiles()) {
-            animalImages.add(new AnimalImage(imagePath + fileEntry.getName(), fileEntry.getName()));
+            if (fileEntry.getName().endsWith(".jpg") || fileEntry.getName().endsWith(".png"))
+                animalImages.add(new AnimalImage(imagePath + fileEntry.getName(), fileEntry.getName()));
         }
     }
 

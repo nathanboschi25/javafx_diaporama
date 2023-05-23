@@ -1,8 +1,6 @@
 package src.views;
 
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -21,6 +19,10 @@ import src.models.Model;
 public class View extends Stage {
     private final Model model;
     public ListView<AnimalImage> listeAnimalsSelector;
+    public Button lastImageBtn;
+    public Button nextImageBtn;
+    public Button prevImageBtn;
+    public Button firstImageBtn;
     public Button playDiapo;
     Tab liste;
     Tab diaporama;
@@ -115,16 +117,15 @@ public class View extends Stage {
     private void initDiapoTab() {
         BorderPane diapoSplit = new BorderPane();
 
-        Button lastImage = new Button("Last");
+        lastImageBtn = new Button("_Last");
 
-        Button nextImage = new Button("Next");
+        nextImageBtn = new Button("_Next");
 
         playDiapo = new Button("Play");
 
-        Button prevImage = new Button("Prev.");
+        prevImageBtn = new Button("_Prev.");
 
-        Button firstImage = new Button("First");
-
+        firstImageBtn = new Button("_First");
 
 
         diapoPosition = new ProgressBar();
@@ -138,7 +139,7 @@ public class View extends Stage {
         diapoSplit.setCenter(imageViewDiapo);
 
 
-        diapoBtns = new FlowPane(firstImage, prevImage, playDiapo, nextImage, lastImage);
+        diapoBtns = new FlowPane(firstImageBtn, prevImageBtn, playDiapo, nextImageBtn, lastImageBtn);
         diapoBtns.setAlignment(Pos.CENTER);
         diapoBtns.setHgap(20);
         diapoBtns.setPadding(new Insets(20));

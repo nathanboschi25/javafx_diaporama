@@ -3,7 +3,6 @@ package src.controllers;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
 import src.models.Model;
 import src.views.View;
 
@@ -22,29 +21,28 @@ public class DiapoBtnClicked implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent actionEvent) {
-        switch (((Button) actionEvent.getSource()).getText()) {
-            case "First":
-                model.setActualImage(model.animalImages.get(0));
-                view.updateImage();
-                break;
-            case "Prev.":
-                prev();
-                break;
-            case "Play":
-                playLoop();
-                break;
-            case "Pause":
-                stopLoop();
-                break;
-            case "Next":
-                next();
-                break;
-            case "Last":
-                model.setActualImage(model.animalImages.get(model.animalImages.size() - 1));
-                view.updateImage();
-                break;
-            default:
-                break;
+        Button source = (Button) actionEvent.getSource();
+
+        if (source == view.firstImageBtn) {
+            model.setActualImage(model.animalImages.get(0));
+            view.updateImage();
+
+        } else if (source == view.prevImageBtn) {
+            prev();
+
+        } else if (source == view.playDiapo && view.playDiapo.getText() == "Play") {
+            playLoop();
+
+        } else if (source == view.playDiapo && view.playDiapo.getText() == "Pause") {
+            stopLoop();
+
+        } else if (source == view.nextImageBtn) {
+            next();
+
+        } else if (source == view.lastImageBtn) {
+            model.setActualImage(model.animalImages.get(model.animalImages.size() - 1));
+            view.updateImage();
+
         }
     }
 
