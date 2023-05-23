@@ -31,8 +31,7 @@ public class View extends Stage {
     private ProgressBar diapoPosition;
     private DiapoBtnClicked diapoController;
     private BorderPane mainPane;
-    private Stage loadingWindow;
-
+    private FlowPane diapoBtns;
 
     public View(Model model) {
         super();
@@ -52,7 +51,6 @@ public class View extends Stage {
 
         this.diaporama = new Tab("Diaporama");
         imageViewDiapo = new ImageView();
-        diapoButtons = new ButtonBar();
 
         tabPane = new TabPane(liste, diaporama);
 
@@ -109,7 +107,7 @@ public class View extends Stage {
         listeAnimalsSelector.getSelectionModel().select(0);
 
         diapoController = new DiapoBtnClicked(model, this);
-        for (Node btn : diapoButtons.getButtons()) {
+        for (Node btn : diapoBtns.getChildren()) {
             ((Button) btn).setOnAction(diapoController);
         }
     }
@@ -128,7 +126,6 @@ public class View extends Stage {
         Button firstImage = new Button("First");
 
 
-        diapoButtons.getButtons().addAll(firstImage, prevImage, playDiapo, nextImage, lastImage);
 
         diapoPosition = new ProgressBar();
         FlowPane diapoPositionProgress = new FlowPane(diapoPosition);
@@ -141,9 +138,9 @@ public class View extends Stage {
         diapoSplit.setCenter(imageViewDiapo);
 
 
-        FlowPane diapoBtns = new FlowPane(diapoButtons);
+        diapoBtns = new FlowPane(firstImage, prevImage, playDiapo, nextImage, lastImage);
         diapoBtns.setAlignment(Pos.CENTER);
-        diapoBtns.setVgap(10);
+        diapoBtns.setHgap(20);
         diapoBtns.setPadding(new Insets(20));
 
         diapoSplit.setTop(diapoPositionProgress);
