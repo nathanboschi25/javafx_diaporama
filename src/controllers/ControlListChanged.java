@@ -16,8 +16,8 @@ public class ControlListChanged implements ChangeListener<AnimalImage> {
     }
 
     @Override
-    public void changed(ObservableValue<? extends AnimalImage> observableValue, AnimalImage old_image, AnimalImage new_image) {
-        System.out.println("Image changed from " + old_image + " to " + new_image);
+    public void changed(ObservableValue<? extends AnimalImage> observableValue, AnimalImage oldImage, AnimalImage newImage) {
+        System.out.println("Image changed from " + oldImage + " to " + newImage);
         model.setActualImage(observableValue.getValue());
         view.updateImage();
     }

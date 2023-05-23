@@ -7,7 +7,8 @@ import src.views.View;
 
 public class Diapo extends Application{
 
-    public static final String PROJECT_PATH = "C:\\Users\\natha\\Documents\\IUT\\SEMESTRE_2\\IHM\\JavaFX_TP\\tp4_diapo\\src";
+//    public static final String PROJECT_PATH = "C:\\Users\\natha\\Documents\\IUT\\SEMESTRE_2\\IHM\\JavaFX_TP\\tp4_diapo\\src";
+    public static final String PROJECT_PATH = System.getProperty("user.dir") + "\\src";
 
     @Override
     public void start(Stage stage) throws Exception {

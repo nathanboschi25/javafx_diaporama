@@ -164,8 +164,8 @@ public class View extends Stage {
 
     public void updateImage() {
         try {
-            this.imageViewListe.setImage(model.getActualImage().animalImage);
-            this.imageViewDiapo.setImage(model.getActualImage().animalImage);
+            this.imageViewListe.setImage(model.getActualImage().actualImage);
+            this.imageViewDiapo.setImage(model.getActualImage().actualImage);
 
             this.listeAnimalsSelector.getSelectionModel().select(model.getActualImage().id);
             this.diapoPosition.setProgress((double) model.getActualImage().id / (AnimalImage.ImageIdCounter - 1));
