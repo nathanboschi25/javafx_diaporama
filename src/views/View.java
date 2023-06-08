@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.BorderPane;
@@ -38,10 +39,11 @@ public class View extends Stage {
     public View(Model model) {
         super();
         this.model = model;
+        this.setTitle("Diaporamma");
+        this.getIcons().add(new Image("https://cdn.icon-icons.com/icons2/1459/PNG/512/2799203-graph-presentation-slide_99778.png"));
         initWidgets();
         this.setOnCloseRequest(windowEvent -> {
-            if (this.playDiapo.getText() == "Pause")
-                diapoController.stopLoop();
+            if (this.playDiapo.getText() == "Pause") diapoController.stopLoop();
         });
     }
 
